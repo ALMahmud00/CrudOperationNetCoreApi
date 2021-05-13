@@ -29,8 +29,10 @@ namespace CrudOperationApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            //add swagger services
+            services.AddSwaggerGen();
 
+            services.AddControllers();
 
             services.AddHttpClient();
             services.AddDbContext<AkijFoodDBContext>(options =>
@@ -43,6 +45,14 @@ namespace CrudOperationApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //configure swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = "api/Softdrinks";
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
