@@ -21,7 +21,7 @@ namespace CrudOperationApi.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-             //optionsBuilder.UseSqlServer("Server=localhost; Database=AkijFoodDB; User ID=userMahmud;Password=1234;");
+                optionsBuilder.UseSqlServer("Server=localhost; Database=AkijFoodDB; User ID=userMahmud;Password=1234;Trusted_Connection=true");
             }
         }
 
