@@ -53,6 +53,27 @@ namespace CrudOperationApi
                 app.UseDeveloperExceptionPage();
             }
 
+            //built-in global exception
+            app.UseExceptionHandler(
+                options =>
+                {
+                    options.Run(
+                        async context =>
+                        {
+
+                            //context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                            context.Response.StatusCode = 500;//internalServerError
+                            var ex = context.Features.Get<IExceptionHandlerFeature>();
+                            if (ex != null)
+                            {
+                                //await context.Response.WriteAsync(ex.Error.Message);
+                                await context.Response.WriteAsync("Some unknown error occured!");
+                            }
+                        }
+                    );
+                }
+            );
+
             //configure swagger
             app.UseSwagger();
             app.UseSwaggerUI(c =>
