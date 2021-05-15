@@ -29,8 +29,9 @@ namespace CrudOperationApi.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Route("GetSoftdrinks")]
         [Route("api/Softdrinks/GetSoftdrinks")]
-        public IEnumerable<Softdrinks> GetSoftdrinks()
+        public IEnumerable<Softdrinks> GetSoftdrinksMETHOD()
         {
             return softdrinksService.GetSoftdrinks();
         }
@@ -38,8 +39,9 @@ namespace CrudOperationApi.Controllers
 
         [HttpGet]
         [Route("[action]")]
+        [Route("GetSoftdrinksById")]
         [Route("api/Softdrinks/GetSoftdrinksById")]
-        public Softdrinks GetSoftdrinksById(int id)
+        public Softdrinks GetSoftdrinksByIdMETHOD(int id)
         {
             return softdrinksService.GetSoftdrinksById(id);
         }
@@ -47,8 +49,9 @@ namespace CrudOperationApi.Controllers
 
         [HttpPost]
         [Route("[action]")]
+        [Route("AddSoftdrinks")]
         [Route("api/Softdrinks/AddSoftdrinks")]
-        public Softdrinks AddSoftdrinks(Softdrinks softdrinks)
+        public Softdrinks AddSoftdrinksMETHOD(Softdrinks softdrinks)
         {
             return softdrinksService.AddSoftdrinks(softdrinks);
         }
@@ -56,8 +59,9 @@ namespace CrudOperationApi.Controllers
 
         [HttpPut]
         [Route("[action]")]
+        [Route("UpdateSoftdrinks")]
         [Route("api/Softdrinks/UpdateSoftdrinks")]
-        public Softdrinks UpdateSoftdrinks(Softdrinks softdrinks)
+        public Softdrinks UpdateSoftdrinksMETHOD(Softdrinks softdrinks)
         {
             return softdrinksService.UpdateSoftdrinks(softdrinks);
         }
@@ -65,8 +69,9 @@ namespace CrudOperationApi.Controllers
 
         [HttpDelete]
         [Route("[action]")]
+        [Route("DeleteSoftdrinks")]
         [Route("api/Softdrinks/DeleteSoftdrinks")]
-        public Softdrinks DeleteSoftdrinks(int id)
+        public Softdrinks DeleteSoftdrinksMETHOD(int id)
         {
             return softdrinksService.DeleteSoftdrinks(id);
         }
